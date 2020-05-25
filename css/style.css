@@ -67,7 +67,6 @@ circle {
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94), -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 text {
@@ -79,7 +78,8 @@ text {
 }
 
 .svg-text {
-  fill: #545a64;
+  fill: #666666;
+  font-size: 20px;
 }
 
 .svg-masked-text {
@@ -93,7 +93,6 @@ image {
           transform-origin: 50% 50%;
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94), -webkit-transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -124,9 +123,9 @@ image {
   height: 200px;
   margin: 5px;
   cursor: pointer;
-  background-color: #3b3e46;
+  background-color: #3b3e46;     /*方框背景色*/
   border-radius: 2px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.02), inset 0 0px 0px 1px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.02), inset 0 0 0 1px rgba(0, 0, 0, 0.07);
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
 }
