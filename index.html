@@ -4,15 +4,61 @@
   <meta charset="UTF-8">
   <title>给丫头的一个小网站</title>
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript">
 
-  
-  
-      <link rel="stylesheet" href="css/style.css">
+    var time_start = new Date('2018', '11', '21');//开始时间，注意！！！如果从8月15开始，月份就是7月15
+    var clock_start = time_start.getTime();
+
+
+    //计算时间差
+    function get_time_spent() {
+      var time_now = new Date();
+      return ((time_now.getTime() - clock_start));
+    }
+
+    function get_times() {
+      var i_total_secs = Math.round(get_time_spent());
+
+      //计算出相差天数
+      var days = Math.floor(i_total_secs / (24 * 3600 * 1000))
+
+      //计算出小时数
+      var leave1 = i_total_secs % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
+      var hours = Math.floor(leave1 / (3600 * 1000))
+      //计算相差分钟数
+      var leave2 = leave1 % (3600 * 1000)        //计算小时数后剩余的毫秒数
+      var minutes = Math.floor(leave2 / (60 * 1000))
+      //计算相差秒数
+      var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
+      var seconds = Math.round(leave3 / 1000)
+
+      if (seconds.toString().length === 1) {
+        seconds = '0' + seconds;
+      }
+      console.log(days + '天' + hours + '个小时' + minutes + '分钟' + seconds + '秒');
+      document.getElementById('timer').innerHTML=
+              "<div id='div1'>" + days + " <span>天</span>" + hours + " <span>小时</span>" + minutes + " <span>分钟</span>" + seconds + " <span>秒</span></div>"
+      window.setTimeout('get_times()', 1000);   //每隔1s刷新一次input里的值
+    }
+  </script>
+  <style>
+    #div1{
+      font-size: 80px;
+    }
+    span{
+      font-size: 50px;
+    }
+    p>b{
+      font-size: 40px;
+      color: #1abc89;
+    }
+  </style>
 
   
 </head>
 
-<body>
+<body onload=" window.setTimeout('get_times()',1);">
   <div class='container'>
   <header>
     <h1>给我喜欢的丫头</h1>
@@ -258,6 +304,17 @@
 </div>
   
     <script src="js/index.js"></script>
+  <div>
+    <p>
+      <b>小可爱，我们在一起，已经是：</b>
+    </p>
+  </div>
+  <div id="timer">
+    <div>296 <span>天</span></div>
+    <div>23 <span>小时</span></div>
+    <div>32 <span>分钟</span></div>
+    <div>01 <span>秒</span></div>
+  </div>
 
 </body>
 </html>
